@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { faqs } from '../data.jsx'
+import contactBg from '../assets/contact page background.jpg'
+import contact2Bg from '../assets/contact 2.jpg'
 
 const fadeIn = (delay = 0) => ({
   initial: { opacity: 0, y: 12 },
@@ -10,17 +12,17 @@ const fadeIn = (delay = 0) => ({
 })
 
 const ContactHero = () => (
-  <section className="bg-surface page-top" style={{ paddingBottom: 0 }}>
-    <div className="wrap" style={{ paddingTop: 64, paddingBottom: 48 }}>
-      <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="eyebrow" style={{ marginBottom: 16 }}>
+  <section className="bg-surface page-top" style={{ paddingBottom: 0, backgroundImage: `url(${contactBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 100%)' }} />
+    <div className="wrap" style={{ paddingTop: 100, paddingBottom: 64, position: 'relative', zIndex: 1 }}>
+      <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="eyebrow" style={{ marginBottom: 16, color: '#93C5FD' }}>
         Get In Touch
       </motion.p>
-      <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }} className="t-h1" style={{ maxWidth: 560 }}>
+      <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }} className="t-h1" style={{ maxWidth: 560, color: '#FFFFFF', fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
         Got a project in mind?{' '}
-        <span style={{ color: '#3B7DD8' }}>Let's talk.</span>
+        <span style={{ color: '#60AEDE' }}>Let's talk.</span>
       </motion.h1>
     </div>
-    <div className="divider" />
   </section>
 )
 
@@ -63,7 +65,7 @@ const ContactMain = () => {
                   <p style={{ fontSize: 11, fontWeight: 600, color: '#4A6A8A', textTransform: 'uppercase', letterSpacing: '0.07em' }}>{item.label}</p>
                   {item.href
                     ? <a href={item.href} style={{ fontSize: 13, fontWeight: 600, color: '#0A1628', textDecoration: 'none', transition: 'color 0.15s ease' }}
-                        onMouseEnter={e => e.currentTarget.style.color = '#3B7DD8'}
+                        onMouseEnter={e => e.currentTarget.style.color = '#60AEDE'}
                         onMouseLeave={e => e.currentTarget.style.color = '#0A1628'}
                       >{item.value}</a>
                     : <p style={{ fontSize: 13, fontWeight: 600, color: '#0A1628' }}>{item.value}</p>
@@ -166,7 +168,7 @@ const InfoBand = () => (
             <div style={{ width: 36, height: 36, borderRadius: 8, background: '#C8DCFA', border: '1px solid #7AAAD8', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginBottom: 4, color: '#1E4D8C' }}>
               {item.icon}
             </div>
-            <p style={{ fontSize: 20, fontWeight: 800, color: '#3B7DD8', letterSpacing: '-0.02em', lineHeight: 1 }}>{item.value}</p>
+            <p style={{ fontSize: 20, fontWeight: 800, color: '#60AEDE', letterSpacing: '-0.02em', lineHeight: 1 }}>{item.value}</p>
             <p style={{ fontSize: 13, fontWeight: 700, color: '#0A1628' }}>{item.label}</p>
             <p style={{ fontSize: 12, color: '#4A6A8A', lineHeight: 1.55 }}>{item.detail}</p>
           </motion.div>
@@ -179,30 +181,31 @@ const InfoBand = () => (
 const FaqSection = () => {
   const [open, setOpen] = useState(null)
   return (
-    <section className="section" style={{ background: '#DDEAF7' }}>
-      <div className="wrap">
+    <section className="section" style={{ position: 'relative', overflow: 'hidden' }}>
+      <img src={contact2Bg} alt="" aria-hidden="true" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', zIndex: 0 }} />
+      <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 48, alignItems: 'start' }} className="faq-grid">
           <div>
-            <p className="eyebrow" style={{ marginBottom: 12 }}>FAQ</p>
-            <h2 className="t-h2" style={{ marginBottom: 12 }}>Common questions</h2>
-            <p style={{ fontSize: 15, color: '#4A6A8A', lineHeight: 1.7 }}>
+            <p className="eyebrow" style={{ marginBottom: 12, color: '#60AEDE' }}>FAQ</p>
+            <h2 className="t-h2" style={{ marginBottom: 12, color: '#FFFFFF' }}>Common questions</h2>
+            <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.8)', lineHeight: 1.7 }}>
               Everything you need to know before starting a conversation with us.
             </p>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 0, border: '1px solid #AECAEC', borderRadius: 12, overflow: 'hidden', background: '#EEF3FB' }}>
+          <div style={{ maxWidth: 680, margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column', gap: 0, border: '1px solid rgba(255,255,255,0.25)', borderRadius: 12, overflow: 'hidden', background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
             {faqs.map((faq, i) => (
-              <motion.div key={faq.question} {...fadeIn(i * 0.04)} style={{ borderBottom: i < faqs.length - 1 ? '1px solid #AECAEC' : 'none' }}>
+              <motion.div key={faq.question} {...fadeIn(i * 0.04)} style={{ borderBottom: i < faqs.length - 1 ? '1px solid rgba(255,255,255,0.15)' : 'none' }}>
                 <button
                   type="button"
                   onClick={() => setOpen(open === i ? null : i)}
                   style={{ width: '100%', textAlign: 'left', padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'none', border: 'none', cursor: 'pointer', gap: 16 }}
                 >
-                  <span style={{ fontSize: 14, fontWeight: 600, color: '#0A1628' }}>{faq.question}</span>
-                  <span style={{ fontSize: 20, color: '#3B7DD8', fontWeight: 400, flexShrink: 0, lineHeight: 1, transform: open === i ? 'rotate(45deg)' : 'rotate(0)', transition: 'transform 0.2s ease', display: 'block' }}>+</span>
+                  <span style={{ fontSize: 14, fontWeight: 600, color: '#FFFFFF' }}>{faq.question}</span>
+                  <span style={{ fontSize: 20, color: '#60AEDE', fontWeight: 400, flexShrink: 0, lineHeight: 1, transform: open === i ? 'rotate(45deg)' : 'rotate(0)', transition: 'transform 0.2s ease', display: 'block' }}>+</span>
                 </button>
                 {open === i && (
                   <div style={{ padding: '0 20px 16px', borderTop: '1px solid #AECAEC' }}>
-                    <p style={{ fontSize: 13, color: '#4A6A8A', lineHeight: 1.7, paddingTop: 12 }}>{faq.answer}</p>
+                    <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.8)', lineHeight: 1.7, paddingTop: 12 }}>{faq.answer}</p>
                   </div>
                 )}
               </motion.div>

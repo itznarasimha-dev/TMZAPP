@@ -28,25 +28,46 @@ export const processSteps = [
   { step: 'Scale',         detail: "Once you're live, the real learning starts. We help you act on what users are telling you, keep the system healthy as you grow, and keep improving what matters.", icon: '06', duration: 'Ongoing' },
 ]
 
+// ─── Project Images ─────────────────────────────────────────────────────────
+import imgAmaravathi  from './assets/projects/amaravathi real estate.jpg'
+import imgMatrimony   from './assets/projects/matrimony application.jpg'
+import imgVasudha     from './assets/projects/vasudha reality.jpg'
+
 // ─── Projects ─────────────────────────────────────────────────────────────────
 export const projects = [
-  { title: 'Amaravathi Real Estate', industry: 'Real Estate', description: 'A premium real estate platform for Amaravathi — the emerging capital region of Andhra Pradesh. Buyers, sellers, and agents all in one place, with smart property discovery and verified listings.', results: 'Thousands of verified listings. 60% faster property discovery. Trusted by buyers across Andhra Pradesh.', technologies: ['React', 'Node.js', 'PostgreSQL', 'Google Maps API', 'AWS'], image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80' },
-  { title: 'Matrimony Application', industry: 'Social / Matrimony', description: 'A full-featured matrimony platform connecting families and individuals across communities. Smart matchmaking, horoscope compatibility, profile verification, and secure in-app messaging built for trust and privacy.', results: 'Thousands of successful matches. 4.8★ app rating. Active users across 10+ states in India.', technologies: ['Flutter', 'Java Spring Boot', 'PostgreSQL', 'Firebase', 'Razorpay', 'Redis'], image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80' },
+  { title: 'Amaravathi Real Estate', industry: 'Real Estate', description: 'A premium real estate platform for Amaravathi — the emerging capital region of Andhra Pradesh. Buyers, sellers, and agents all in one place, with smart property discovery and verified listings.', results: 'Thousands of verified listings. 60% faster property discovery. Trusted by buyers across Andhra Pradesh.', technologies: ['React', 'Node.js', 'PostgreSQL', 'Google Maps API', 'AWS'], image: imgAmaravathi },
+  { title: 'Matrimony Application', industry: 'Social / Matrimony', description: 'A full-featured matrimony platform connecting families and individuals across communities. Smart matchmaking, horoscope compatibility, profile verification, and secure in-app messaging built for trust and privacy.', results: 'Thousands of successful matches. 4.8★ app rating. Active users across 10+ states in India.', technologies: ['Flutter', 'Java Spring Boot', 'PostgreSQL', 'Firebase', 'Razorpay', 'Redis'], image: imgMatrimony },
+  { title: 'Vasudha Realty', industry: 'Real Estate', description: 'A modern real estate platform for Vasudha Realty — connecting buyers, sellers, and agents across premium residential and commercial properties. Smart search filters, virtual property tours, verified listings, and a seamless enquiry system built for serious buyers.', results: 'Hundreds of verified listings live at launch. 45% increase in qualified leads. Enquiry-to-site-visit conversion up 3x.', technologies: ['React', 'Node.js', 'PostgreSQL', 'Google Maps API', 'AWS', 'Razorpay'], image: imgVasudha },
   { title: 'Velocity Analytics Platform', industry: 'B2B SaaS', description: 'A team was spending 40+ hours a month pulling data together manually just to produce reports their executives needed every week. We fixed that.', results: '87% less time spent on reporting. Over 2.4 million data points processed every day. Now used by 50,000+ people.', technologies: ['React', 'Python', 'PostgreSQL', 'Redis', 'AWS'], image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80' },
   { title: 'Nexus Healthcare Portal', industry: 'HealthTech', description: 'Patients in rural areas were waiting two weeks to see a specialist. We helped build a telemedicine platform that put a doctor a few taps away.', results: 'Over 120,000 consultations completed. 95% patient satisfaction. Now available in 12 countries.', technologies: ['Next.js', 'Node.js', 'MongoDB', 'WebRTC', 'Stripe'], image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80' },
   { title: 'Orbit E-commerce Engine', industry: 'E-commerce', description: "A fast-growing DTC brand was selling on three different channels but managing them like they were separate businesses. Inventory was a mess. We cleaned it up.", results: '$12M in sales in the first year. A 3.2% conversion rate. Nearly half of customers come back for more.', technologies: ['Next.js', 'Shopify', 'GraphQL', 'Algolia', 'Vercel'], image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80' },
-  { title: 'Prism AI Assistant', industry: 'AI/ML', description: "A support team was drowning in tickets — 10,000 a month, with a 24-hour average wait. Most were the same handful of questions. We taught an AI to handle them.", results: '70% of tickets resolved automatically. Average resolution time dropped to 2 minutes. Saved $450K a year.', technologies: ['Python', 'OpenAI', 'LangChain', 'Pinecone', 'FastAPI'], image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80' },
-  { title: 'Summit Finance Dashboard', industry: 'FinTech', description: 'Wealth managers were juggling 20+ platforms and still delivering reports two days late. Their clients deserved better visibility into their own money.', results: '$2.8 billion under management on the platform. 99.9% data accuracy. Average client saves 35% more on taxes.', technologies: ['React', 'Django', 'PostgreSQL', 'Plaid', 'D3.js'], image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80' },
-  { title: 'Quantum Supply Chain', industry: 'Logistics', description: "A manufacturer was losing $5 million a year — sometimes from stockouts, sometimes from sitting on too much inventory. Forecasting was basically guesswork.", results: '40% drop in inventory costs. 98% of orders fulfilled on time. $8M saved annually.', technologies: ['Vue.js', 'Python', 'TensorFlow', 'IoT', 'Kafka'], image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80' },
+  { title: 'ClearDesk', industry: 'AI/ML', description: 'A growing SaaS company was burying their support team under repetitive tickets. Same 12 questions, over and over, at all hours. We built an AI layer that understood their product well enough to handle the routine stuff — so their team could focus on the problems that actually needed a human.', results: '68% of tickets handled without human involvement. First response time cut from 19 hours to under 3 minutes. Support team headcount stayed flat while the user base doubled.', technologies: ['Python', 'OpenAI', 'LangChain', 'Pinecone', 'FastAPI'], image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80' },
+  { title: 'WealthLens', industry: 'FinTech', description: 'A boutique wealth management firm was running on spreadsheets and gut feel. Their advisors were spending more time chasing numbers than talking to clients. We built them a unified dashboard that pulled everything together — live portfolio data, tax exposure, client activity — in one place.', results: 'Advisors cut reporting time by 70%. Client review meetings went from quarterly to monthly. The firm onboarded 40 new HNI clients in the first 6 months after launch.', technologies: ['React', 'Django', 'PostgreSQL', 'Plaid', 'D3.js'], image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80' },
+  { title: 'StockSense', industry: 'Logistics', description: 'A mid-size manufacturer kept running into the same two problems every quarter — either they ran out of stock and lost orders, or they over-ordered and tied up cash. Their forecasting was built on instinct and old Excel sheets. We replaced it with a system that actually learns.', results: 'Stockouts dropped by 62%. Excess inventory carrying costs down 38%. The ops team now gets weekly forecasts they actually trust — and act on.', technologies: ['Vue.js', 'Python', 'TensorFlow', 'IoT', 'Kafka'], image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80' },
 ]
 
-// ─── Services ─────────────────────────────────────────────────────────────────
-const Icon = ({ d, extra }) => (
-  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    {extra ? <>{d}{extra}</> : d}
-  </svg>
-)
+// ─── Service Images ──────────────────────────────────────────────────────────
+import imgWeb        from './assets/services/web developement card.jpg'
+import imgMobile     from './assets/services/mobile app developement card.jpg'
+import imgUI         from './assets/services/ui ux design.jpg'
+import imgAI         from './assets/services/ai solutions.jpg'
+import imgAutomation from './assets/services/automation systems.jpg'
+import imgCloud      from './assets/services/cloud computing card.jpg'
+import imgGrowth     from './assets/services/growth technology.jpg'
+import imgBusiness    from './assets/services/Business Software.jpg'
 
+export const SERVICE_IMAGES = {
+  'Web Development':     imgWeb,
+  'Mobile Applications': imgMobile,
+  'UI/UX Design':        imgUI,
+  'AI Solutions':        imgAI,
+  'Automation Systems':  imgAutomation,
+  'Cloud Solutions':     imgCloud,
+  'Business Software':   imgBusiness,
+  'Growth Technology':   imgGrowth,
+}
+
+// ─── Services ─────────────────────────────────────────────────────────────────
 export const services = [
   { title: 'Web Development', description: "We build web products that are fast, solid, and actually enjoyable to use. Whether it's a marketing site, a SaaS dashboard, or a full platform — we make sure it loads quickly, scales without drama, and looks great doing it.", icon: <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>, benefits: ['Pages that load in under a second', 'SEO built in from the start', 'Scales as your user base grows'], stack: ['React', 'Next.js', 'Node.js', 'TypeScript', 'PostgreSQL'], outcome: 'Ship faster and spend less time fixing things that should just work.' },
   { title: 'Mobile Applications', description: "Your users are on their phones — we make sure your app feels right at home there. We build iOS and Android apps that are smooth, reliable, and the kind people actually keep installed.", icon: <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>, benefits: ['Feels native on every device', 'Works offline when needed', "Smart notifications that don't annoy people"], stack: ['React Native', 'Expo', 'Swift', 'Kotlin', 'Firebase'], outcome: 'An app your users love opening, not one they tolerate.' },

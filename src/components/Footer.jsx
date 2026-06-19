@@ -173,13 +173,14 @@ export default function Footer() {
               <span style={{ fontSize: 11, color: '#56616E' }}>All systems operational</span>
             </div>
             <span style={{ color: '#1E1A10', fontSize: 11 }}>·</span>
-            {['Privacy Policy', 'Terms of Service'].map((label, i, arr) => (
+            {[{ label: 'Privacy Policy', path: '/privacy' }, { label: 'Terms of Service', path: '/terms' }].map(({ label, path }, i, arr) => (
               <span key={label} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                <a href="#"
+                <Link
+                  to={path}
                   style={{ fontSize: 11, color: '#56616E', textDecoration: 'none', transition: 'color 0.15s ease' }}
                   onMouseEnter={e => e.currentTarget.style.color = '#7A8496'}
                   onMouseLeave={e => e.currentTarget.style.color = '#56616E'}
-                >{label}</a>
+                >{label}</Link>
                 {i < arr.length - 1 && <span style={{ color: '#1E1A10' }}>·</span>}
               </span>
             ))}

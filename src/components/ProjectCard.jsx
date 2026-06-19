@@ -7,23 +7,18 @@ export default function ProjectCard({ title, industry, description, results, tec
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.4, delay: (index % 3) * 0.07 }}
-      className="card card-interactive"
-      style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
+      className="proj-card"
     >
-      <div style={{ aspectRatio: '16/9', overflow: 'hidden', background: '#C8DCFA', flexShrink: 0 }}>
+      <div className="proj-img-wrap">
         {image ? (
-          <img src={image} alt={title} loading="lazy"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
-            onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.03)'}
-            onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-          />
+          <img src={image} alt={title} loading="lazy" className="proj-img" />
         ) : (
           <div style={{ width: '100%', height: '100%', background: '#DDEAF7' }} />
         )}
       </div>
 
       <div style={{ padding: 24, display: 'flex', flexDirection: 'column', flex: 1 }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+        <div style={{ marginBottom: 12 }}>
           {industry && <span className="pill">{industry}</span>}
         </div>
 
@@ -43,6 +38,41 @@ export default function ProjectCard({ title, industry, description, results, tec
           </div>
         )}
       </div>
+
+      <style>{`
+        .proj-card {
+          background: var(--color-card);
+          border: 1px solid var(--color-border);
+          border-radius: var(--r-lg);
+          box-shadow: var(--shadow-sm);
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+        }
+        .proj-card:hover {
+          box-shadow: var(--shadow-md);
+          transform: translateY(-3px);
+          border-color: var(--color-border-2);
+        }
+        .proj-img-wrap {
+          aspect-ratio: 16/9;
+          overflow: hidden;
+          background: #C8DCFA;
+          flex-shrink: 0;
+        }
+        .proj-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
+          will-change: transform;
+        }
+        .proj-card:hover .proj-img {
+          transform: scale(1.04);
+        }
+      `}</style>
     </motion.article>
   )
 }

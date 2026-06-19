@@ -1,5 +1,4 @@
-import { BrowserRouter, Routes, Route, Outlet, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, Outlet, useLocation, Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -12,7 +11,7 @@ import Contact from './pages/Contact'
 import Career from './pages/Career'
 
 const Layout = () => (
-  <div style={{ minHeight: '100vh', background: 'var(--color-bg)', display: 'flex', flexDirection: 'column' }}>
+  <div style={{ minHeight: '100vh', background: 'var(--color-bg)', display: 'flex', flexDirection: 'column', overscrollBehavior: 'none' }}>
     <Navbar />
     <main style={{ flex: 1 }}><Outlet /></main>
     <Footer />
@@ -24,33 +23,38 @@ const NotFound = () => (
     <p style={{ fontSize: 96, fontWeight: 800, color: '#1E4D8C', letterSpacing: '-0.04em', lineHeight: 1, marginBottom: 16 }}>404</p>
     <h1 style={{ fontSize: 24, fontWeight: 700, color: '#0A1628', marginBottom: 8 }}>Page not found</h1>
     <p style={{ fontSize: 15, color: '#4A6A8A', marginBottom: 32 }}>The page you're looking for doesn't exist.</p>
-    <a href="/" className="btn btn-primary" style={{ padding: '0 24px', height: 44, fontSize: 14 }}>Go back home</a>
+    <Link to="/" className="btn btn-primary" style={{ padding: '0 24px', height: 44, fontSize: 14 }}>Go back home</Link>
   </div>
 )
 
+const pageVariants = {
+  initial:  { opacity: 0,    y: 15 },
+  animate:  { opacity: 1,    y: 0  },
+  exit:     { opacity: 0,    y: -15 },
+}
+
+const pageTransition = {
+  duration: 0.38,
+  ease: [0.25, 0.1, 0.25, 1],
+}
+
 const wrap = (Page) => (
   <motion.div
-    initial={{ opacity: 0, y: 16 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -8 }}
-    transition={{ duration: 0.3, ease: 'easeOut' }}
+    variants={pageVariants}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    transition={pageTransition}
   >
     <Page />
   </motion.div>
 )
 
-function ScrollToTop() {
-  const { pathname } = useLocation()
-  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
-  return null
-}
-
 function AppRoutes() {
   const location = useLocation()
   return (
     <>
-      <ScrollToTop />
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo({ top: 0 })}>
         <Routes location={location} key={location.pathname}>
           <Route element={<Layout />}>
             <Route index          element={wrap(Home)} />

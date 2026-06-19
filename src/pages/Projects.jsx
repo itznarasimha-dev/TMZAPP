@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import ProjectCard from '../components/ProjectCard'
 import { projects } from '../data.jsx'
+import projectsBg from '../assets/projects background.jpg'
+import projects2Bg from '../assets/projects 2.jpg'
 
 const fadeIn = (delay = 0) => ({
   initial: { opacity: 0, y: 12 },
@@ -11,27 +13,30 @@ const fadeIn = (delay = 0) => ({
 })
 
 const ProjectsHero = () => (
-  <section className="bg-surface page-top" style={{ paddingBottom: 0 }}>
-    <div className="wrap" style={{ paddingTop: 64, paddingBottom: 48 }}>
+  <section className="bg-surface page-top" style={{ paddingBottom: 0, backgroundImage: `url(${projectsBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 100%)' }} />
+    <div className="wrap" style={{ paddingTop: 100, paddingBottom: 64, position: 'relative', zIndex: 1 }}>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 24, alignItems: 'end' }} className="proj-hero-grid">
         <div>
-          <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="eyebrow" style={{ marginBottom: 16 }}>
+          <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="eyebrow" style={{ marginBottom: 16, color: '#93C5FD' }}>
             Our Work
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }} className="t-h1">
+          <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }} className="t-h1" style={{ color: '#FFFFFF', fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
             Some of the things{' '}
-            <span style={{ color: '#3B7DD8' }}>we've built</span>
+            <span style={{ color: '#60AEDE' }}>we've built</span>
           </motion.h1>
         </div>
         <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
-          style={{ fontSize: 16, color: '#4A6A8A', lineHeight: 1.7, maxWidth: 380, alignSelf: 'end' }}
+          style={{ fontSize: 18, color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, maxWidth: 380, alignSelf: 'end' }}
           className="proj-hero-desc"
         >
-          These are real projects with real results. The goal is always the same: does it actually work for the people using it?
+          Real projects. Real results.
+          <span style={{ display: 'block', marginTop: 6, color: 'rgba(255,255,255,0.7)', fontSize: 15 }}>
+            The goal is always the same, does it actually work for the people using it?
+          </span>
         </motion.p>
       </div>
     </div>
-    <div className="divider" />
   </section>
 )
 
@@ -72,19 +77,20 @@ const ImpactBand = () => (
 )
 
 const ProjectsCTA = () => (
-  <section className="section bg-surface">
-    <div className="wrap">
+  <section className="section" style={{ position: 'relative', overflow: 'hidden' }}>
+    <img src={projects2Bg} alt="" aria-hidden="true" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', zIndex: 0 }} />
+    <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 32, alignItems: 'center' }} className="proj-cta-grid">
         <div>
-          <p className="eyebrow" style={{ marginBottom: 16 }}>What's next?</p>
-          <h2 className="t-h2" style={{ marginBottom: 12 }}>Ready to be our next great project?</h2>
-          <p style={{ fontSize: 15, color: '#4A6A8A', lineHeight: 1.7, maxWidth: 400 }}>
+          <p className="eyebrow" style={{ marginBottom: 16, color: '#60AEDE' }}>What's next?</p>
+          <h2 className="t-h2" style={{ marginBottom: 12, color: '#FFFFFF' }}>Ready to be our next great project?</h2>
+          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, maxWidth: 400 }}>
             We're selective — but we're always happy to have an honest conversation about what you're building.
           </p>
         </div>
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
           <Link to="/contact" className="btn btn-primary btn-lg">Start your project</Link>
-          <Link to="/about" className="btn btn-outline btn-lg">About us</Link>
+          <Link to="/about" className="btn btn-outline btn-lg" style={{ background: 'rgba(255,255,255,0.08)', borderColor: 'rgba(255,255,255,0.3)', color: '#FFFFFF' }}>About us</Link>
         </div>
       </div>
     </div>
