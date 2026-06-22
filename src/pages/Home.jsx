@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import SectionHeading from '../components/SectionHeading'
 import ProjectCard from '../components/ProjectCard'
 import TestimonialCard from '../components/TestimonialCard'
-import heroBg from '../assets/home hero.jpg'
+
 import ctaBg from '../assets/home 2.jpg'
 import whyBg from '../assets/home 3.jpg'
 import { services, projects, processSteps, testimonials, whyChoose, SERVICE_IMAGES } from '../data.jsx'
@@ -24,18 +24,17 @@ const fadeIn = (delay = 0) => ({
 const Hero = () => (
   <section style={{ paddingTop: 0, paddingBottom: 0, position: 'relative', minHeight: '100vh', overflow: 'hidden', background: '#000' }}>
 
-    {/* ── Image background ── */}
-    <img
-      src={heroBg}
-      alt=""
+    {/* ── Video background ── */}
+    <video
+      autoPlay
+      muted
+      loop
+      playsInline
       aria-hidden="true"
-      style={{
-        position: 'absolute', inset: 0,
-        width: '100%', height: '100%',
-        objectFit: 'cover',
-        zIndex: 0,
-      }}
-    />
+      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
+    >
+      <source src="https://res.cloudinary.com/dbuapowna/video/upload/q_auto/f_auto/v1781890696/backgound_tzm_q69acp.mp4" type="video/mp4" />
+    </video>
 
 
 
